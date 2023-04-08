@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{{parent()}}
+
+<h1>Cual post desea eliminar? :</h1>
+
+{{ dump(posts) }}
+
+{% endblock %}

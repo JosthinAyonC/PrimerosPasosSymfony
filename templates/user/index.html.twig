@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+ 
+
+{% block body %}
+
+
+
+
+<h1>Registro de usuario</h1>
+{{form(registerForm)}}
+<br>
+<span>Ya tienes una cuenta?</span>
+
+<a href="{{ path('login') }}" class="btn btn-primary">Inicia sesión</a>
+
+{% endblock %}

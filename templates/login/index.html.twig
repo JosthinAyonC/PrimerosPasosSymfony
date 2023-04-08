@@ -1,0 +1,31 @@
+{# templates/login/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# ... #}
+
+{% block body %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="alert alert-danger">{{ flashMessage }}</div>
+{% endfor %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <h1>Iniciar sesion</h1>
+    <form action="{{ path('login') }}" method="post">
+        <label for="username">Email:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}">
+            
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password">
+
+        <input type="hidden" name="_target_path" value="/"> 
+
+        <button type="submit">login</button>
+    </form>
+    <br>
+<span>No tienes una cuenta?</span>
+
+<a href="{{ path('userRegister') }}" class="btn btn-primary">Registrate</a>
+{% endblock %}

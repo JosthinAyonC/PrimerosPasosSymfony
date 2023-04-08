@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publicacion "{{post.title}}"{% endblock %}
+
+{% block body %}
+
+
+{# <h1>Publicaciones recientes:</h1>
+
+{{ dump(post) }} #}
+
+{{parent()}}
+
+<div class="article">
+  <h2 class="title">{{post.title}}</h2>
+  <p class="description">{{post.description }}</p>
+  <div class="content">
+    <div class="image">
+      <img src="ruta-de-la-imagen" alt="Descripción de la imagen">
+    </div>
+    <div class="details">
+      <p class="author">Por <span></span></p>
+      <p class="date">Publicado el <span> {{ post.creationdate | date }}</span></p>
+    </div>
+  </div>
+</div>
+{% endblock %}

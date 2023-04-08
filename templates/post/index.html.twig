@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+{{parent() }}
+<table>
+    <thead>
+        <tr>
+            <td><u>id</u></td>
+            <td><u>Titulo</u></td>
+            <td><u>Descripcion</u></td>
+            <td><u>Fecha de creacion</u></td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+            
+            <tr>
+                <td><a href="{{path('postDetails', {id:post.id})}}">Ver</a></td>
+                <td>{{post.title}}</td>
+                <td>{{post.description}}</td>
+                <td>{{post.creation_date | date}}</td>
+            </tr>
+
+        {% endfor %}
+        
+
+    </tbody>
+</table>
+<br>
+    <h3><a href="{{ path('postCreate') }}" class="btn btn-primary">Crea un post</a></h3>
+{% endblock %}
